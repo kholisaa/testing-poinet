@@ -1,0 +1,5 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2
+streamlit
+open3d==0.17.0
+numpy==1.26.4
