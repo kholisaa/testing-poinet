@@ -173,10 +173,13 @@ def process_and_predict(file_path, model, classes):
     if len(points) == 0:
         raise ValueError("File PCD kosong atau tidak terbaca.")
         
-    # Pastikan jumlah titik pas 2048 (Jika user upload file mentah yg belum di FPS)
+    # Pastikan jumlah titik pas 2048 (WAJIB PAKAI FPS BIAR SAMA KAYAK TRAINING!)
     if len(points) > 2048:
-        idx = np.random.choice(len(points), 2048, replace=False)
-        points = points[idx]
+        # Ubah ke tensor sebentar untuk masuk mesin FPS
+        pts_tensor = torch.tensor(points, dtype=torch.float32).unsqueeze(0)
+        # Ambil 2048 titik terjauh secara merata
+        fps_idx = farthest_point_sample(pts_tensor, 2048)[0]
+        points = points[fps_idx.numpy()]
     elif len(points) < 2048:
         idx = np.random.choice(len(points), 2048, replace=True)
         points = points[idx]
