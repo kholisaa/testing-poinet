@@ -151,7 +151,7 @@ class PointNet2_MultiLabel(nn.Module):
 # ==========================================
 @st.cache_resource
 def load_model():
-    model_path = "best_model_pointnet2.pth" # Pastikan nama file ini benar!
+    model_path = "model_final_pointnet2_100persen.pth" # Pastikan nama file ini benar!
     
     if not os.path.exists(model_path):
         return None, None
