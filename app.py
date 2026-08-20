@@ -204,8 +204,8 @@ def process_and_predict(file_path, model, classes):
 # ==========================================
 # 3. ANTARMUKA WEB STREAMLIT
 # ==========================================
-st.title("🔍 Deteksi Cacat Wadah 3D (PointNet++)")
-st.write("Silakan upload file point cloud (.pcd) untuk dianalisis.")
+st.title("🔍 Deteksi 🛻 (PointNet++)")
+st.write("Silakan upload file point cloud (.pcd) merge")
 
 model, classes = load_model()
 
