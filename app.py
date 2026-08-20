@@ -207,6 +207,11 @@ def process_and_predict(file_path, model, classes):
 st.title("🔍 Deteksi 🛻 (PointNet++)")
 st.write("Silakan upload file point cloud (.pcd) merge")
 
+password = st.sidebar.text_input("Masukkan Password", type="password")
+if password != "abc123":
+    st.warning("Silakan masukkan password di menu sebelah kiri")
+    st.stop()
+
 model, classes = load_model()
 
 if model is None:
